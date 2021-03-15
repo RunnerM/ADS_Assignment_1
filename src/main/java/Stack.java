@@ -4,6 +4,6 @@ public interface Stack<T> extends List {
 
 	public abstract void push(T elm);
 
-	public abstract T pop();
+	public abstract T pop() throws EmptyStackException;
 
 }

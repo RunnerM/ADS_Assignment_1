@@ -10,6 +10,6 @@ public interface List<T> {
 
 	public abstract void addToFront(T data);
 
-	public abstract T removeFirst();
+	public abstract T removeFirst() throws EmptyListException;
 
 }

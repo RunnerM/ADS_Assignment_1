@@ -1,5 +1,5 @@
 public interface Calculator {
 
-	public abstract int getResult();
+	public abstract int getResult() throws MalformedExpressionException;
 
 }

@@ -2,16 +2,16 @@ import java.util.ArrayList;
 
 public class Client {
 
-	private Token token;
+	private ArrayList<Token> tokens;
 
 	private CalculatorVisitor calculatorVisitor;
 
-	private Stack stack;
-
-	private LinkedStack linkedStack;
-
 	public int evaluateExpression(ArrayList<Token> tokenList) {
-		return 0;
+		calculatorVisitor = new CalculatorVisitor();
+		for (Token t:tokenList) {
+			t.accept(calculatorVisitor);
+		}
+		return calculatorVisitor.getResult();
 	}
 
 }

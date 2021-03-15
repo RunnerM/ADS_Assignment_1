@@ -2,22 +2,22 @@ public class Node<T> {
 
 	private T data;
 
-	private Node node;
+	private Node next;
 
 	public void setData(T data) {
-
+		this.data = data;
 	}
 
 	public T getData() {
-		return null;
+		return data;
 	}
 
-	public void setNext(Node Node) {
-
+	public void setNext(Node node) {
+		this.next = node;
 	}
 
 	public Node getNext() {
-		return null;
+		return next;
 	}
 
 }
