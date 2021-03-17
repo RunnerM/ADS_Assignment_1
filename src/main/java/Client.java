@@ -11,7 +11,14 @@ public class Client {
 		for (Token t:tokenList) {
 			t.accept(calculatorVisitor);
 		}
-		return calculatorVisitor.getResult();
+		try{
+			return calculatorVisitor.getResult();
+		}catch(Exception e){
+			System.out.println("malformed Exception");
+			return 0; // todo: to be continued.
+		}
+
+
 	}
 
 }

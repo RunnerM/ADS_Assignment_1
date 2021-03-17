@@ -1,7 +1,6 @@
-public abstract class LinkedStack<T> implements Stack {
+public class LinkedStack<T> implements Stack {
 
 	private LinkedList linkedList;
-
 
 	/**
 	 * @see Stack#isEmpty()

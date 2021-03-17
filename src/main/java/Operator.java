@@ -15,4 +15,7 @@ public class Operator extends Token {
 		return operation;
 	}
 
+	public void setOperation(Operation operation) {
+		this.operation = operation;
+	}
 }

@@ -1,4 +1,4 @@
-public interface Stack<T> extends List {
+public interface Stack<T> {
 
 	public abstract boolean isEmpty();
 
