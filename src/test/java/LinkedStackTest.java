@@ -1,34 +1,54 @@
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LinkedStackTest {
 
+    LinkedStack<Token> linkedStack;
+
     @BeforeEach
     void setUp() {
-
+        linkedStack = new LinkedStack<>();
     }
 
     @AfterEach
     void tearDown() {
+
     }
 
     @Test
     void isEmpty() {
-        //Todo: 0,1,many
+        assertTrue(linkedStack.isEmpty());
     }
 
     @Test
-    void push() {
-        //Todo: 1
+    void push()
+    {
+        linkedStack.push(15);
+        assertFalse(linkedStack.isEmpty());
     }
 
     @Test
-    void pop() {
-        //Todo: 1, Exception(Empty)
+    void pop() throws EmptyStackException
+    {
+        linkedStack.push(15);
+        linkedStack.pop();
+        assertTrue(linkedStack.isEmpty());
     }
 
-    // TODO: KEVIN
+    @Test
+    void testExpectedException()
+    {
+        Assertions.assertThrows(EmptyStackException.class, () -> {
+            linkedStack.push(15);
+            linkedStack.pop();
+            linkedStack.pop();
+        });
+    }
+
 }
