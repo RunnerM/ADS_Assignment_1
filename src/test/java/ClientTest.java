@@ -77,4 +77,4 @@ class ClientTest {
         assertThrows(MalformedExpressionException.class, ()->client.evaluateExpression(EXCEPTION));
     }
 
-}git
+}
