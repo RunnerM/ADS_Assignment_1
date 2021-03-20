@@ -8,7 +8,8 @@ class ClientTest {
     ArrayList<Token> ZERO;
     ArrayList<Token> ONE;
     ArrayList<Token> MANY;
-    ArrayList<Token> EXCEPTION;// Todo: this.
+    ArrayList<Token> EXCEPTION;
+    MalformedExpressionException malformedExpressionException;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
@@ -30,11 +31,18 @@ class ClientTest {
         operator1.setOperation(Operation.ADD);
         operator2.setOperation(Operation.DIV);
 
+        ONE.add(operator1);
+
         MANY.add(operand1);
         MANY.add(operand2);
         MANY.add(operator1);
-        MANY.add(operator1);
+        MANY.add(operand3);
         MANY.add(operator2);
+
+        EXCEPTION.add(operand1);
+        EXCEPTION.add(operator1);
+        EXCEPTION.add(operator2);
+        EXCEPTION.add(operator1);
     }
 
     @org.junit.jupiter.api.AfterEach
@@ -44,9 +52,29 @@ class ClientTest {
 
     @org.junit.jupiter.api.Test
     void evaluateExpression() {
-        assertTrue(client.evaluateExpression(MANY)==13);
+
+        try {
+            assertTrue(client.evaluateExpression(MANY)==13);
+        } catch (MalformedExpressionException e) {
+            e.printStackTrace();
+        }
 
 
     }
-    //Todo: MARTON OG ANETT
-}
+
+    @org.junit.jupiter.api.Test
+    void evaluateExpressionOne() {
+        assertThrows(MalformedExpressionException.class, ()->client.evaluateExpression(ONE));
+    }
+
+    @org.junit.jupiter.api.Test
+    void evaluateExpressionZero() {
+        assertThrows(MalformedExpressionException.class, ()->client.evaluateExpression(ZERO));
+
+    }
+    @org.junit.jupiter.api.Test
+    void evaluateExpressionException() {
+        assertThrows(MalformedExpressionException.class, ()->client.evaluateExpression(EXCEPTION));
+    }
+
+}git

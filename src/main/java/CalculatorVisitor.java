@@ -14,6 +14,7 @@ public class CalculatorVisitor extends Operand implements Visitor, Calculator {
     }
 
     private void performOperation(Operator operator) throws MalformedExpressionException {
+
         try {
             Operand operandRight = (Operand) tokenStack.pop();
             Operand operandLeft = (Operand) tokenStack.pop();
@@ -38,6 +39,8 @@ public class CalculatorVisitor extends Operand implements Visitor, Calculator {
             resultOperand.setValue(Result);
             tokenStack.push(resultOperand);
         } catch (EmptyStackException e) {
+            throw new MalformedExpressionException();
+        } catch(NullPointerException e) {
             throw new MalformedExpressionException();
         }
 

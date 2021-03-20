@@ -6,7 +6,7 @@ public class Client {
 
 	private CalculatorVisitor calculatorVisitor;
 
-	public int evaluateExpression(ArrayList<Token> tokenList) {
+	public int evaluateExpression(ArrayList<Token> tokenList) throws MalformedExpressionException {
 		calculatorVisitor = new CalculatorVisitor();
 		for (Token t:tokenList) {
 			t.accept(calculatorVisitor);
@@ -14,8 +14,7 @@ public class Client {
 		try{
 			return calculatorVisitor.getResult();
 		}catch(Exception e){
-			System.out.println("malformed Exception");
-			return 0; // todo: to be continued.
+			throw new MalformedExpressionException();
 		}
 
 
