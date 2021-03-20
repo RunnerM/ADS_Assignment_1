@@ -33,7 +33,7 @@ class ClientTest {
         MANY.add(operand1);
         MANY.add(operand2);
         MANY.add(operator1);
-        MANY.add(operator1);
+        MANY.add(operand3);
         MANY.add(operator2);
     }
 
